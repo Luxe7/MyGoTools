@@ -1,21 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"glxe"
 	"net/http"
 )
 
 func main() {
 	r := glxe.New()
-	r.GET("/", func(w http.ResponseWriter, req *http.Request) {
-		fmt.Fprintf(w, "URL.Path = %q\n", req.URL.Path)
-	})
-
-	r.GET("/hello", func(w http.ResponseWriter, req *http.Request) {
-		for k, v := range req.Header {
-			fmt.Fprintf(w, "Header[%q] = %q\n", k, v)
-		}
+	r.GET("/", func(c *glxe.Context) {
+		c.HTML(http.StatusOK, "<h1>Hello Gee</h1>")
 	})
 
 	r.Run(":9999")
