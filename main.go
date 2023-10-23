@@ -1,7 +1,7 @@
 package main
 
 import (
-	"glxe"
+	"mygotools/glxe"
 	"net/http"
 )
 
